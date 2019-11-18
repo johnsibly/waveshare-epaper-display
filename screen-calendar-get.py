@@ -73,8 +73,8 @@ for x in range(6):
     else:
         day = ''
         desc = ''
-    DAY_TOKEN = 'CAL_' + str(x)
-    DESC_TOKEN = 'CAL_DESK_' + str(x)
+    DAY_TOKEN = 'CAL_' + str(x+1)
+    DESC_TOKEN = 'CAL_DESC_' + str(x+1)
     output = output.replace(DAY_TOKEN, day)
     output = output.replace(DESC_TOKEN, desc)
 
