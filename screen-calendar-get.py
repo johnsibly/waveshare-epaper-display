@@ -66,8 +66,11 @@ for x in range(6):
     if events[x]:
         event = events[x]
         start = event['start'].get('dateTime', event['start'].get('date'))
-        start = start[:10]
-        day = time.strftime("%a %b %d",time.strptime(start,"%Y-%m-%d"))
+        day = ''
+        if len(start) == 10:
+            day = time.strftime("%a %b %d",time.strptime(start,"%Y-%m-%d"))
+        else:
+            day = time.strftime("%a %b %d %X",time.strptime(start,"%Y-%m-%dT%H:%M:%S%fZ"))
         desc = event['summary']
         print(day, desc)
     else:
