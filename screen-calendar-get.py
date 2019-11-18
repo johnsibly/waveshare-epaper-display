@@ -61,26 +61,21 @@ events = events_result.get('items', [])
 if not events:
     print('No upcoming events found.')
 
-event_one = events[0]
-start = event_one['start'].get('dateTime', event_one['start'].get('date'))
-start = start[:10]
-day_one = time.strftime("%a %b %d",time.strptime(start,"%Y-%m-%d"))
-desc_one = event_one['summary']
-print(day_one, desc_one)
-
-event_two = events[1]
-start = event_two['start'].get('dateTime', event_two['start'].get('date'))
-start = start[:10]
-day_two = time.strftime("%a %b %d",time.strptime(start,"%Y-%m-%d"))
-desc_two = event_two['summary']
-print(day_two, desc_two)
-
-
-
 output = codecs.open(template , 'r', encoding='utf-8').read()
-output = output.replace('CAL_ONE',day_one)
-output = output.replace('CAL_DESC_ONE',desc_one)
-output = output.replace('CAL_TWO',day_two)
-output = output.replace('CAL_DESC_TWO',desc_two)
+for x in range(6):
+    if events[x]:
+        event = events[x]
+        start = event['start'].get('dateTime', event['start'].get('date'))
+        start = start[:10]
+        day = time.strftime("%a %b %d",time.strptime(start,"%Y-%m-%d"))
+        desc = event['summary']
+        print(day, desc)
+    else:
+        day = ''
+        desc = ''
+    DAY_TOKEN = 'CAL_' + str(x)
+    DESC_TOKEN = 'CAL_DESK_' + str(x)
+    output = output.replace(DAY_TOKEN, day)
+    output = output.replace(DESC_TOKEN, desc)
 
 codecs.open('screen-output-weather.svg', 'w', encoding='utf-8').write(output)
