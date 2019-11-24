@@ -194,7 +194,7 @@
      font-size="38px"
      style="font-size:38px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:middle">HIGH_ONE/LOW_ONE</text>
    <text
-     id="textprcblock1"
+     id="textprcblockbusarrivals"
      x="30"
      y="345"
      font-size="29px"
@@ -205,7 +205,7 @@
      <tspan style="font-weight:bold;" x="30" dy="25">BUS_3</tspan>
    </text>
    <text
-     id="textprcblock1"
+     id="textprcblocktransportoptions"
      x="330"
      y="370"
      font-size="29px"
@@ -247,7 +247,7 @@
      <tspan style="font-weight:bold;" x="330" dy="25">CAL_DESC_1</tspan>
    </text>
    <text
-     id="textprcblock1"
+     id="textprcblock2"
      x="330"
      y="150"
      font-size="29px"
@@ -256,7 +256,7 @@
      <tspan style="font-weight:bold;" x="330" dy="25">CAL_DESC_2</tspan>
    </text>
    <text
-     id="textprcblock1"
+     id="textprcblock3"
      x="330"
      y="200"
      font-size="29px"
@@ -264,8 +264,8 @@
      <tspan x="330" dy="25" style="font-size:23px;">CAL_3</tspan>
      <tspan style="font-weight:bold;" x="330" dy="25">CAL_DESC_3</tspan>
    </text>
-      <text
-     id="textprcblock1"
+   <text
+     id="textprcblock4"
      x="330"
      y="250"
      font-size="29px"
@@ -273,8 +273,8 @@
      <tspan x="330" dy="25" style="font-size:23px;">CAL_4</tspan>
      <tspan style="font-weight:bold;" x="330" dy="25">CAL_DESC_4</tspan>
    </text>
-      <text
-     id="textprcblock1"
+   <text
+     id="textprcblock5"
      x="330"
      y="300"
      font-size="29px"
