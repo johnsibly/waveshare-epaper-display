@@ -62,7 +62,7 @@ if not events:
     print('No upcoming events found.')
 
 output = codecs.open(template , 'r', encoding='utf-8').read()
-for x in range(6):
+for x in range(5):
     if events[x]:
         event = events[x]
         start = event['start'].get('dateTime', event['start'].get('date'))

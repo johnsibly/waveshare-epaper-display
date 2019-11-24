@@ -167,7 +167,7 @@
        style="font-weight:bold;font-size:100px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">TIME_NOW</text>
   <!-- </g> -->
   <g
-     transform="scale(1.2) translate(75 215)"
+     transform="scale(1.2) translate(75 190)"
      id="g3127">
     <use
        xlink:href="#ICON_ONE"
@@ -184,22 +184,43 @@
   <text
      id="text3155"
      x="165"
-     y="253"
+     y="203"
      font-size="37px"
      style="font-size:37px;font-weight:bold;line-height:0%;font-family:'Nimbus Sans L';text-anchor:middle">DAY_ONE</text>
   <text
      id="text3159"
      x="155"
-     y="420"
+     y="245"
      font-size="38px"
      style="font-size:38px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:middle">HIGH_ONE/LOW_ONE</text>
+   <text
+     id="textprcblock1"
+     x="30"
+     y="345"
+     font-size="29px"
+     style="font-size:29px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">
+     <tspan x="30" dy="25" style="font-size:23px;">Deodor Road bus stop</tspan>
+     <tspan style="font-weight:bold;" x="30" dy="25">BUS_1</tspan>
+     <tspan style="font-weight:bold;" x="30" dy="25">BUS_2</tspan>
+     <tspan style="font-weight:bold;" x="30" dy="25">BUS_3</tspan>
+   </text>
+   <text
+     id="textprcblock1"
+     x="330"
+     y="370"
+     font-size="29px"
+     style="font-size:29px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">
+     <tspan x="330" dy="25" style="font-size:23px;">Transport options</tspan>
+     <tspan style="font-weight:bold;" x="330" dy="25">OPTION_TUBE</tspan>
+     <tspan style="font-weight:bold;" x="330" dy="25">OPTION_BUS</tspan>
+   </text>
+  
   <path
-     d="m 301.08466,394.8254 v 70 h 3 v -235.5 h -3 z"
+     d="m 301.08466,394.8254 v -40 h 3 v -240 h -3 z"
      id="path3197"
      inkscape:connector-curvature="0" />
-
    <g 
-   id="calendar" transform="scale(0.1) translate(3300,950)">
+   id="calendar" transform="scale(0.1) translate(3300,450)">
 				<path
             style="fill:#090509"
             d="M 506.645,89.372 C 502.609,76.437 491.008,66.87 476.738,66.87 h -31.782 v 49.326 c 0,26.284 -21.39,47.674 -47.674,47.674 -26.284,0 -47.674,-21.39 -47.674,-47.674 V 66.87 H 158.753 v 49.326 c 0,26.284 -21.39,47.674 -47.674,47.674 -26.284,0 -47.674,-21.39 -47.674,-47.674 V 66.87 H 31.782 c -14.27,0 -25.903,9.567 -29.907,22.502 H 0 v 387.365 c 0,17.544 14.239,31.782 31.782,31.782 h 444.955 c 17.544,0 31.782,-14.239 31.782,-31.782 V 89.372 Z M 476.737,476.737 H 31.782 v -254.26 h 444.955 z"
@@ -219,7 +240,7 @@
    <text
      id="textprcblock1"
      x="330"
-     y="150"
+     y="100"
      font-size="29px"
      style="font-size:29px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">
      <tspan x="330" dy="25" style="font-size:23px;">CAL_1</tspan>
@@ -228,7 +249,7 @@
    <text
      id="textprcblock1"
      x="330"
-     y="200"
+     y="150"
      font-size="29px"
      style="font-size:29px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">
      <tspan x="330" dy="25" style="font-size:23px;">CAL_2</tspan>
@@ -237,7 +258,7 @@
    <text
      id="textprcblock1"
      x="330"
-     y="250"
+     y="200"
      font-size="29px"
      style="font-size:29px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">
      <tspan x="330" dy="25" style="font-size:23px;">CAL_3</tspan>
@@ -246,7 +267,7 @@
       <text
      id="textprcblock1"
      x="330"
-     y="300"
+     y="250"
      font-size="29px"
      style="font-size:29px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">
      <tspan x="330" dy="25" style="font-size:23px;">CAL_4</tspan>
@@ -255,19 +276,11 @@
       <text
      id="textprcblock1"
      x="330"
-     y="350"
+     y="300"
      font-size="29px"
      style="font-size:29px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">
      <tspan x="330" dy="25" style="font-size:23px;">CAL_5</tspan>
      <tspan style="font-weight:bold;" x="330" dy="25">CAL_DESC_5</tspan>
    </text>
-   <text
-     id="textprcblock1"
-     x="330"
-     y="400"
-     font-size="29px"
-     style="font-size:29px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">
-     <tspan x="330" dy="25" style="font-size:23px;">CAL_6</tspan>
-     <tspan style="font-weight:bold;" x="330" dy="25">CAL_DESC_6</tspan>
-   </text>
+
 </svg>

@@ -23,6 +23,9 @@ current_hour=`date +"%H"`
 figlet Calendar info
 sudo -E python3 screen-calendar-get.py
 
+figlet Transport status
+sudo -E python3 screen-transport-status.py
+
 figlet Export
 # Inkscape can't export to BMP, so let's export to PNG first. 
 inkscape  screen-output-weather.svg --without-gui -e screen-output.png -w640 -h384 --export-dpi=150
