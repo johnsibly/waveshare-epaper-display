@@ -167,7 +167,7 @@
        style="font-weight:bold;font-size:100px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">TIME_NOW</text>
   <!-- </g> -->
   <g
-     transform="scale(1.2) translate(75 190)"
+     transform="scale(1.2) translate(65 190)"
      id="g3127">
     <use
        xlink:href="#ICON_ONE"
@@ -184,13 +184,13 @@
   <text
      id="text3155"
      x="165"
-     y="203"
+     y="175"
      font-size="37px"
      style="font-size:37px;font-weight:bold;line-height:0%;font-family:'Nimbus Sans L';text-anchor:middle">DAY_ONE</text>
   <text
      id="text3159"
      x="155"
-     y="245"
+     y="220"
      font-size="38px"
      style="font-size:38px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:middle">HIGH_ONE/LOW_ONE</text>
    <text
