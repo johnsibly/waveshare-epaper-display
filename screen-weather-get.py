@@ -17,7 +17,7 @@ if darksky_apikey=="":
     print("DARKSKY_APIKEY is missing")
     sys.exit(1)
 
-town_latlong='51.3656,-0.1963'
+town_latlong='51.4616,-0.2090'
 
 template = 'screen-template.svg'
 
