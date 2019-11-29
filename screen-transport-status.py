@@ -16,22 +16,23 @@ bus3 = ''
 tubeTime = 'Undefined'
 busTime = 'Undefined'
 
-# def wheresMyBus():
-json = requests.get(busArrivals).json()
-sortedBuses = sorted(json, key=lambda a: a['timeToStation']) 
+def wheresMyBus():
+    global bus1, bus2, bus3
+    json = requests.get(busArrivals).json()
+    sortedBuses = sorted(json, key=lambda a: a['timeToStation']) 
 
-if len(sortedBuses) > 0:
-    bus = sortedBuses[0]
-    bus1 = bus['lineName'] + ' 🚌 ' + str(int(bus['timeToStation']/60)) + ' minutes'
-    if len(sortedBuses) > 1:
-        bus = sortedBuses[1]
-        bus2 = bus['lineName'] + ' 🚌 ' + str(int(bus['timeToStation']/60)) + ' minutes'
-        if len(sortedBuses) > 2:
-            bus = sortedBuses[2]
-            bus3 = bus['lineName'] + ' 🚌 ' + str(int(bus['timeToStation']/60)) + ' minutes'
-print(bus1)
-print(bus2)
-print(bus3)
+    if len(sortedBuses) > 0:
+        bus = sortedBuses[0]
+        bus1 = bus['lineName'] + ' in ' + str(int(bus['timeToStation']/60)) + ' minutes'
+        if len(sortedBuses) > 1:
+            bus = sortedBuses[1]
+            bus2 = bus['lineName'] + ' in ' + str(int(bus['timeToStation']/60)) + ' minutes'
+            if len(sortedBuses) > 2:
+                bus = sortedBuses[2]
+                bus3 = bus['lineName'] + ' in ' + str(int(bus['timeToStation']/60)) + ' minutes'
+    print(bus1)
+    print(bus2)
+    print(bus3)
     
 def howIsJourney(tuneUrl, option):
     json = requests.get(tuneUrl).json()
@@ -41,8 +42,8 @@ def howIsJourney(tuneUrl, option):
             if leg['mode']['name'] != 'walking':
                 if mode == 'walking':
                     mode = leg['mode']['name']
-                else:
-                    mode += ' and ' + leg['mode']['name']
+                # else:
+                #    mode += ' and ' + leg['mode']['name']
         return (mode + ' will take ' + str(journey['duration']) + ' minutes')
 
 def howIsDistrict():
@@ -56,7 +57,7 @@ def howIsDistrict():
 
 busTime = howIsJourney(busUrl, 'bus')
 tubeTime = howIsJourney(tubeUrl, 'tube')
-# howIsDistrict()
+wheresMyBus()
 
 # Process the SVG
 output = codecs.open(template , 'r', encoding='utf-8').read()
