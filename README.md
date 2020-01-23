@@ -65,27 +65,36 @@ Connect the ribbon from the epaper display to the extension.  To do this you wil
 
 ### Get the BCM2835 driver
 
-    wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.58.tar.gz
-    sudo tar zxvf bcm2835-1.58.tar.gz
-    cd bcm2835-1.58/
+    wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.60.tar.gz
+    tar zxvf bcm2835-1.60.tar.gz 
+    cd bcm2835-1.60/
     sudo ./configure
     sudo make
     sudo make check
     sudo make install
+    #For more details, please refer to http://www.airspayce.com/mikem/bcm2835/
 
 
 ### Get the WiringPi library
 
-    sudo git clone git://git.drogon.net/wiringPi
-    cd wiringPi
-    sudo ./build
+    sudo apt-get install wiringpi
+
+    #For Pi 4, you need to update it：
+    cd /tmp
+    wget https://project-downloads.drogon.net/wiringpi-latest.deb
+    sudo dpkg -i wiringpi-latest.deb
+    gpio -v
+    #You will get 2.52 information if you install it correctly
 
 ### Get the Python3 libraries
 
-    sudo apt-get install 
+    sudo apt-get update
+    sudo apt-get install python3-pip
+    sudo apt-get install python3-pil
+    sudo apt-get install python3-numpy
+    sudo pip3 install RPi.GPIO
+    sudo pip3 install spidev
     
-
-
 ## Using this application
 
 ### Clone it
