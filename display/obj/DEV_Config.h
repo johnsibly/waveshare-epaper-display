@@ -3,7 +3,7 @@
 * | Author      :   Waveshare team
 * | Function    :   Hardware underlying interface
 * | Info        :
-*                Used to shield the underlying layers of each master 
+*                Used to shield the underlying layers of each master
 *                and enhance portability
 *----------------
 * |	This version:   V2.0
@@ -22,8 +22,8 @@
 *   EPD_CS_1\EPD_CS_0
 *   EPD_BUSY_1\EPD_BUSY_0
 * 3.add:
-*   #define DEV_Digital_Write(_pin, _value) bcm2835_gpio_write(_pin, _value)
-*   #define DEV_Digital_Read(_pin) bcm2835_gpio_lev(_pin)
+*   #define DEV_Digital_Write(_pin, _value) bcm2835_GPIOI_write(_pin, _value)
+*   #define DEV_Digital_Read(_pin) bcm2835_GPIOI_lev(_pin)
 *   #define DEV_SPI_WriteByte(__value) bcm2835_spi_transfer(__value)
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -48,9 +48,35 @@
 #ifndef _DEV_CONFIG_H_
 #define _DEV_CONFIG_H_
 
-#include <bcm2835.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <unistd.h>
+#include <errno.h>
+#include <stdio.h>
+#include <string.h>
+#include "Debug.h"
+
+#ifdef RPI
+    #ifdef USE_BCM2835_LIB
+        #include <bcm2835.h>
+    #elif USE_WIRINGPI_LIB
+        #include <wiringPi.h>
+        #include <wiringPiSPI.h>
+    #elif USE_DEV_LIB
+        #include "RPI_sysfs_gpio.h"
+        #include "dev_hardware_SPI.h"
+    #endif
+#endif
+
+#ifdef JETSON
+    #ifdef USE_DEV_LIB
+        #include "sysfs_gpio.h"    
+        #include "sysfs_software_spi.h"
+    #elif USE_HARDWARE_LIB
+        
+    #endif
+
+#endif
 
 /**
  * data
@@ -60,32 +86,23 @@
 #define UDOUBLE uint32_t
 
 /**
- * GPIO config
+ * GPIOI config
 **/
-#define EPD_RST_PIN     17
-#define EPD_DC_PIN      25
-#define EPD_CS_PIN      8
-#define EPD_BUSY_PIN    24
-
-/**
- * GPIO read and write
-**/
-#define DEV_Digital_Write(_pin, _value) bcm2835_gpio_write(_pin, _value)
-#define DEV_Digital_Read(_pin) bcm2835_gpio_lev(_pin)
-
-/**
- * SPI
-**/
-#define DEV_SPI_WriteByte(__value) bcm2835_spi_transfer(__value)
-
-/**
- * delay x ms
-**/
-#define DEV_Delay_ms(__xms) bcm2835_delay(__xms)
+extern int EPD_RST_PIN;
+extern int EPD_DC_PIN;
+extern int EPD_CS_PIN;
+extern int EPD_BUSY_PIN;
 
 /*------------------------------------------------------------------------------------------------------*/
-UBYTE DEV_ModuleInit(void);
-void DEV_ModuleExit(void);
+void DEV_Digital_Write(UWORD Pin, UBYTE Value);
+UBYTE DEV_Digital_Read(UWORD Pin);
+
+void DEV_SPI_WriteByte(UBYTE Value);
+void DEV_SPI_Write_nByte(uint8_t *pData, uint32_t Len);
+void DEV_Delay_ms(UDOUBLE xms);
+
+UBYTE DEV_Module_Init(void);
+void DEV_Module_Exit(void);
 
 
 #endif
