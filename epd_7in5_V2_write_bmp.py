@@ -19,8 +19,9 @@ try:
     epd = epd7in5_V2.EPD()
     epd.init()
     epd.Clear()
-    Himage = Image.open('screen-output.bmp')
-    epd.display(epd.getbuffer(Himage))
+    upsideDownImage = Image.open('screen-output.bmp')
+    rotatedImage = upsideDownImage.transpose(Image.ROTATE_180)
+    epd.display(epd.getbuffer(rotatedImage))
     time.sleep(2)
 
 #    logging.info("Clear...")
