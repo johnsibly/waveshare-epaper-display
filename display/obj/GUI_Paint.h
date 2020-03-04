@@ -1,6 +1,6 @@
-/*****************************************************************************
+/******************************************************************************
 * | File      	:   GUI_Paint.h
-* | Author      :   Waveshare team
+* | Author      :   Waveshare electronics
 * | Function    :	Achieve drawing: draw points, lines, boxes, circles and
 *                   their size, solid dotted line, solid rectangle hollow
 *                   rectangle, solid circle hollow circle.
@@ -8,9 +8,28 @@
 *   Achieve display characters: Display a single character, string, number
 *   Achieve time display: adaptive size display time minutes and seconds
 *----------------
-* |	This version:   V2.0
-* | Date        :   2018-11-15
+* |	This version:   V3.1
+* | Date        :   2019-10-10
 * | Info        :
+* -----------------------------------------------------------------------------
+* V3.1(2019-10-10):
+* 1. Add gray level
+*   PAINT Add Scale
+* 2. Add void Paint_SetScale(UBYTE scale);
+* 
+* V3.0(2019-04-18):
+* 1.Change: 
+*    Paint_DrawPoint(..., DOT_STYLE DOT_STYLE)
+* => Paint_DrawPoint(..., DOT_STYLE Dot_Style)
+*    Paint_DrawLine(..., LINE_STYLE Line_Style, DOT_PIXEL Dot_Pixel)
+* => Paint_DrawLine(..., DOT_PIXEL Line_width, LINE_STYLE Line_Style)
+*    Paint_DrawRectangle(..., DRAW_FILL Filled, DOT_PIXEL Dot_Pixel)
+* => Paint_DrawRectangle(..., DOT_PIXEL Line_width, DRAW_FILL Draw_Fill)
+*    Paint_DrawCircle(..., DRAW_FILL Draw_Fill, DOT_PIXEL Dot_Pixel)
+* => Paint_DrawCircle(..., DOT_PIXEL Line_width, DRAW_FILL Draw_Filll)
+*
+* -----------------------------------------------------------------------------
+* V2.0(2018-11-15):
 * 1.add: Paint_NewImage()
 *    Create an image's properties
 * 2.add: Paint_SelectImage()
@@ -23,7 +42,11 @@
 * 4.add: Paint_SetMirroring() 
 *    Can Mirroring the picture, horizontal, vertical, origin
 * 5.add: Paint_DrawString_CN() 
-*    Can display Chinese(GB1312)    
+*    Can display Chinese(GB1312)   
+*
+* ----------------------------------------------------------------------------- 
+* V1.0(2018-07-17):
+*   Create library
 *
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documnetation files (the "Software"), to deal
@@ -64,8 +87,9 @@ typedef struct {
     UWORD Mirror;
     UWORD WidthByte;
     UWORD HeightByte;
+    UWORD Scale;
 } PAINT;
-extern volatile PAINT Paint;
+extern PAINT Paint;
 
 /**
  * Display rotate
@@ -97,6 +121,11 @@ typedef enum {
 #define FONT_FOREGROUND     BLACK
 #define FONT_BACKGROUND     WHITE
 
+//4 Gray level
+#define  GRAY1 0x03 //Blackest
+#define  GRAY2 0x02
+#define  GRAY3 0x01 //gray
+#define  GRAY4 0x00 //white
 /**
  * The size of the point
 **/
@@ -156,22 +185,23 @@ void Paint_SelectImage(UBYTE *image);
 void Paint_SetRotate(UWORD Rotate);
 void Paint_SetMirroring(UBYTE mirror);
 void Paint_SetPixel(UWORD Xpoint, UWORD Ypoint, UWORD Color);
+void Paint_SetScale(UBYTE scale);
 
 void Paint_Clear(UWORD Color);
 void Paint_ClearWindows(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color);
 
 //Drawing
 void Paint_DrawPoint(UWORD Xpoint, UWORD Ypoint, UWORD Color, DOT_PIXEL Dot_Pixel, DOT_STYLE Dot_FillWay);
-void Paint_DrawLine(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color, LINE_STYLE Line_Style, DOT_PIXEL Dot_Pixel);
-void Paint_DrawRectangle(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color, DRAW_FILL Filled , DOT_PIXEL Dot_Pixel);
-void Paint_DrawCircle(UWORD X_Center, UWORD Y_Center, UWORD Radius, UWORD Color, DRAW_FILL Draw_Fill , DOT_PIXEL Dot_Pixel);
+void Paint_DrawLine(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color, DOT_PIXEL Line_width, LINE_STYLE Line_Style);
+void Paint_DrawRectangle(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend, UWORD Color, DOT_PIXEL Line_width, DRAW_FILL Draw_Fill);
+void Paint_DrawCircle(UWORD X_Center, UWORD Y_Center, UWORD Radius, UWORD Color, DOT_PIXEL Line_width, DRAW_FILL Draw_Fill);
 
 //Display string
-void Paint_DrawChar(UWORD Xstart, UWORD Ystart, const char Acsii_Char, sFONT* Font, UWORD Color_Background, UWORD Color_Foreground);
-void Paint_DrawString_EN(UWORD Xstart, UWORD Ystart, const char * pString, sFONT* Font, UWORD Color_Background, UWORD Color_Foreground);
-void Paint_DrawString_CN(UWORD Xstart, UWORD Ystart, const char * pString, cFONT* font, UWORD Color_Background, UWORD Color_Foreground);
-void Paint_DrawNum(UWORD Xpoint, UWORD Ypoint, int32_t Nummber, sFONT* Font, UWORD Color_Background, UWORD Color_Foreground);
-void Paint_DrawTime(UWORD Xstart, UWORD Ystart, PAINT_TIME *pTime, sFONT* Font, UWORD Color_Background, UWORD Color_Foreground);
+void Paint_DrawChar(UWORD Xstart, UWORD Ystart, const char Acsii_Char, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background);
+void Paint_DrawString_EN(UWORD Xstart, UWORD Ystart, const char * pString, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background);
+void Paint_DrawString_CN(UWORD Xstart, UWORD Ystart, const char * pString, cFONT* font, UWORD Color_Foreground, UWORD Color_Background);
+void Paint_DrawNum(UWORD Xpoint, UWORD Ypoint, int32_t Nummber, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background);
+void Paint_DrawTime(UWORD Xstart, UWORD Ystart, PAINT_TIME *pTime, sFONT* Font, UWORD Color_Foreground, UWORD Color_Background);
 
 //pic
 void Paint_DrawBitMap(const unsigned char* image_buffer);

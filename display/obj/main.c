@@ -4,7 +4,7 @@
 #include "GUI_Paint.h"
 #include "GUI_BMPfile.h"
 #include "ImageData.h"
-#include "EPD_7in5.h"
+#include "EPD_7in5_V2.h"
 
 void  Handler(int signo)
 {
