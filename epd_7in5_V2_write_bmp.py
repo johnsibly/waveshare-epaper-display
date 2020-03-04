@@ -19,7 +19,7 @@ try:
     epd = epd7in5_V2.EPD()
     epd.init()
     epd.Clear()
-    Himage = Image.open(os.path.join(picdir, 'screen-output.bmp'))
+    Himage = Image.open('screen-output.bmp')
     epd.display(epd.getbuffer(Himage))
     time.sleep(2)
 
