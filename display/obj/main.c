@@ -6,11 +6,15 @@
 #include "ImageData.h"
 #include "EPD_7in5_V2.h"
 
+// Display resolution
+#define EPD_WIDTH       800
+#define EPD_HEIGHT      480
+
 void  Handler(int signo)
 {
     //System Exit
     printf("\r\nHandler:Goto Sleep mode\r\n");
-    EPD_Sleep();
+    EPD_7IN5_V2_Sleep();
     DEV_ModuleExit();
 
     exit(0);
@@ -49,13 +53,13 @@ int main(int argc, char * argv [])
     // Exception handling:ctrl + c
     signal(SIGINT, Handler);
 
-    if(EPD_Init() != 0) {
+    if(EPD_7IN5_V2_Init() != 0) {
         printf("e-Paper init failed\r\n");
     }
     
     if(refresh == 1){
         printf("clear...\r\n");
-        EPD_Clear();
+        EPD_7IN5_V2_Clear();
         DEV_Delay_ms(500);
     }
     
@@ -77,11 +81,11 @@ int main(int argc, char * argv [])
     Paint_SelectImage(BlackImage);  
     Paint_Clear(WHITE);
     GUI_ReadBmp(filename, 0, 0);
-    EPD_Display(BlackImage);
+    EPD_7IN5_V2_Display(BlackImage);
 
 
     printf("Goto Sleep mode...\r\n");
-    EPD_Sleep();
+    EPD_7IN5_V2_Sleep();
     free(BlackImage);
     BlackImage = NULL;
 
