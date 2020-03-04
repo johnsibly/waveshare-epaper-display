@@ -4,6 +4,7 @@
 #include "GUI_Paint.h"
 #include "GUI_BMPfile.h"
 #include "ImageData.h"
+#include "DEV_Config.h"
 #include "EPD_7in5_V2.h"
 
 // Display resolution
