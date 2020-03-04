@@ -45,4 +45,4 @@ figlet Display BMP
 # The line below runs the c based library to write the bmp to the e-paper display (current crashes)
 # sudo display/display screen-output.bmp $SHOULD_REFRESH
 
-sudo -E python3 edp_7in5_V2_write_bmp.py
+sudo -E python3 epd_7in5_V2_write_bmp.py
