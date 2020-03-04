@@ -4,7 +4,6 @@
 #include "GUI_Paint.h"
 #include "GUI_BMPfile.h"
 #include "ImageData.h"
-#include "DEV_Config.h"
 #include "EPD_7in5_V2.h"
 
 // Display resolution
@@ -16,7 +15,7 @@ void  Handler(int signo)
     //System Exit
     printf("\r\nHandler:Goto Sleep mode\r\n");
     EPD_7IN5_V2_Sleep();
-    DEV_ModuleExit();
+    DEV_Module_Exit();
 
     exit(0);
 }
@@ -49,7 +48,7 @@ int main(int argc, char * argv [])
 
     printf("\r\n");
 
-    DEV_ModuleInit();
+    DEV_Module_Init();
 
     // Exception handling:ctrl + c
     signal(SIGINT, Handler);
