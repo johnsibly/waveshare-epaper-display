@@ -33,7 +33,6 @@ inkscape  screen-output-weather.svg --without-gui -e screen-output.png -w800 -h4
 # Convert to a black and white, 1 bit bitmap
 convert -colors 2 +dither -type Bilevel -monochrome screen-output.png screen-output.bmp
 
-
 SHOULD_REFRESH=0
 current_minute=`date +"%M"`
 
@@ -41,5 +40,9 @@ if [ $current_minute -eq 0 ] ; then
    SHOULD_REFRESH=1
 fi
 
-figlet Display
-sudo display/display screen-output.bmp $SHOULD_REFRESH
+figlet Display BMP
+
+# The line below runs the c based library to write the bmp to the e-paper display (current crashes)
+# sudo display/display screen-output.bmp $SHOULD_REFRESH
+
+sudo -E python3 edp_7in5_V2_write_bmp.py
