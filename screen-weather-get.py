@@ -13,7 +13,7 @@ import html
 
 darksky_apikey=os.getenv("DARKSKY_APIKEY","")
 
-if darksky_apikey=="":
+if darksky_apikey=="" or darksky_apikey=="xxxxxxxxxxxxxx":
     print("DARKSKY_APIKEY is missing")
     sys.exit(1)
 
