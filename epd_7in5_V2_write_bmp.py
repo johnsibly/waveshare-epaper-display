@@ -18,15 +18,15 @@ logging.basicConfig(level=logging.DEBUG)
 try:
     epd = epd7in5_V2.EPD()
     epd.init()
-    epd.Clear()
+
+    # only clear once an hour
+    if sys.argv[1] == 1:
+        epd.Clear()
+    
     upsideDownImage = Image.open('screen-output.bmp')
     rotatedImage = upsideDownImage.transpose(Image.ROTATE_180)
     epd.display(epd.getbuffer(rotatedImage))
     time.sleep(2)
-
-#    logging.info("Clear...")
-#    epd.init()
-#    epd.Clear()
 
     logging.info("Goto Sleep...")
     epd.sleep()
