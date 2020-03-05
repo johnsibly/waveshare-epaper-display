@@ -5,7 +5,7 @@ The screen will display date, time, weather icon with high and low, Google Calen
 
 ## Shopping list
 
-[Waveshare 7.5 inch epaper display HAT 640x384](https://www.amazon.co.uk/gp/product/B075R4QY3L/)  
+[Waveshare 7.5V2 inch epaper display HAT 800x480](https://www.amazon.co.uk/gp/product/B075R4QY3L/)  
 [Raspberry Pi Zero WH (presoldered header)](https://www.amazon.co.uk/gp/product/B07BHMRTTY/)  
 [microSDHC card](https://www.amazon.co.uk/gp/product/B073K14CVB)
 
@@ -29,7 +29,6 @@ Create a file called `wpa_supplicant.conf` in the boot partition
 
 with these contents    
 
-
     update_config=1
     country=GB
 
@@ -39,6 +38,7 @@ with these contents
         key_mgmt=WPA-PSK
     }
 
+Note: if you ever need to update the wifi password again, create a new version of this file on the boot partition of the MicroSD card
 
 ### Start the Pi
 
@@ -113,14 +113,6 @@ Modify the `env.sh` file and put your DarkSky API key in there.
 
     export DARKSKY_APIKEY=xxxxxx
 
-
-### PiHole info
-
-Modify the `env.sh` and add the domain of the PiHole in there, eg `pi.hole` or `192.168.0.111`
-
-    export PIHOLE_ADDR=192.168.0.111
-
-
 ### Google Calendar token
 
 The Oauth process needs to complete once manually in order to allow the Python code to then continuously query Google Calendar for information. 
@@ -136,8 +128,6 @@ The script will prompt you to visit a URL in your browser and then wait.  Copy t
 
 On the first screen you should see the auth flow complete, and a new `token.pickle` file appears.  The Python script should now be able to run in the future without prompting required.  
 
-
-
 ### Run it
 
 Run `./run.sh` which should query DarkSky, PiHole, Google Calendar.  It will then create a png, convert to a 1-bit black and white bmp, then display the bmp on screen. 
@@ -145,30 +135,32 @@ Run `./run.sh` which should query DarkSky, PiHole, Google Calendar.  It will the
 Using a 1-bit, low grade BMP is what allows the screen to refresh relatively quickly. Calling the BCM code to do it takes about 6 seconds. 
 Rendering a high quality PNG or JPG and rendering to screen with Python takes about 35 seconds.  
 
+### If you'd like to set this up to run as a scheduled task
 
+```
+crontab -e
+```
 
+Add an entry for the script:
+
+```
+0 * * * * /{PATH_TO_REPO}/run.sh
+```
 
 ## Waveshare documentation and sample code
 
 Waveshare have a [user manual](https://www.waveshare.com/w/upload/7/74/7.5inch-e-paper-hat-user-manual-en.pdf) which you can get to from [their Wiki](https://www.waveshare.com/wiki/7.5inch_e-Paper_HAT)
-
 
 The [Waveshare demo repo is here](https://github.com/waveshare/e-Paper).  Assuming all dependencies are installed, these demos should work.  
 
     git clone https://github.com/waveshare/e-Paper waveshare-epaper-sample
     cd waveshare-epaper-sample
 
-
-
-
-
 ### Run the BCM2835 demo
-
 
     cd ~/waveshare-epaper-sample/7.5inch_e-paper_code/RaspberryPi/bcm2835/
     make
     sudo ./epd
-
 
 ### Run the WiringPI demo
 
