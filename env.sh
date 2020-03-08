@@ -1,3 +1,8 @@
 export DARKSKY_APIKEY=xxxxxxxxxxxxxx
-export PIHOLE_ADDR=192.168.0.111
 export GOOGLE_CALENDAR_ID=primary
+export MONZO_ACCESS_TOKEN=xxxxxxxxxxxxxx
+export MONZO_ACCOUNT_ID=xxxxxxxxxxxxxx
+export MONZO_ACCOUNT_NAME=Primary Account
+export MONZO_POT_1_NAME=Holiday
+export MONZO_POT_2_NAME=Savings
+export MONZO_POT_3_NAME=Rainy Day
