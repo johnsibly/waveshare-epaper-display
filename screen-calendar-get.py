@@ -8,6 +8,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 import codecs
 import os
+import html
 
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
@@ -78,7 +79,7 @@ for x in range(5):
         desc = ''
     DAY_TOKEN = 'CAL_' + str(x+1)
     DESC_TOKEN = 'CAL_DESC_' + str(x+1)
-    output = output.replace(DAY_TOKEN, day)
-    output = output.replace(DESC_TOKEN, desc)
+    output = output.replace(DAY_TOKEN, html.escape(day))
+    output = output.replace(DESC_TOKEN, html.escape(desc))
 
 codecs.open('screen-output-weather.svg', 'w', encoding='utf-8').write(output)
