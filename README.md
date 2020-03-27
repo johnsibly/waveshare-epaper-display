@@ -94,6 +94,7 @@ Connect the ribbon from the epaper display to the extension.  To do this you wil
     sudo apt-get install python3-numpy
     sudo pip3 install RPi.GPIO
     sudo pip3 install spidev
+    sudo pip3 install pymonzo
     
 ## Using this application
 

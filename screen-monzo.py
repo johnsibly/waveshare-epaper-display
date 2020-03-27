@@ -3,35 +3,31 @@ import requests
 from operator import attrgetter
 import codecs
 import os
+from pymonzo import MonzoAPI
+monzo = MonzoAPI() 
 
 template = 'screen-output-weather.svg'
 
-MONZO_ACCESS_TOKEN=os.getenv("MONZO_ACCESS_TOKEN","")
-MONZO_ACCOUNT_ID=os.getenv("MONZO_ACCOUNT_ID","")
 MONZO_ACCOUNT_NAME=os.getenv("MONZO_ACCOUNT_NAME","")
 MONZO_POT_1_NAME=os.getenv("MONZO_POT_1_NAME","")
 MONZO_POT_2_NAME=os.getenv("MONZO_POT_2_NAME","")
 MONZO_POT_3_NAME=os.getenv("MONZO_POT_3_NAME","")
 
-monzoBalanceURL = 'https://api.monzo.com/balance?' + 'account_id=' + MONZO_ACCOUNT_ID
-monzoPotsURL = 'https://api.monzo.com/pots'
 monzoBalance = 'Undefined'
 pot1 = 'Undefined'
 pot2 = 'Undefined'
 pot3 = 'Undefined'   
 
-headers = {'Authorization': 'Bearer ' + MONZO_ACCESS_TOKEN}
-balanceJson = requests.get(monzoBalanceURL, headers=headers).json()
-monzoBalance = MONZO_ACCOUNT_NAME + ': £' + "{:.2f}".format(balanceJson['balance']/100)
-potsJson = requests.get(monzoPotsURL, headers=headers).json()
+monzoBalance = MONZO_ACCOUNT_NAME + ': £' + "{:.2f}".format(monzo.balance().balance/100)
 
-for pot in potsJson['pots']:
-    if pot['name'] == MONZO_POT_1_NAME:
-        pot1 = pot['name'] + ': £' + "{:.2f}".format(pot['balance']/100)
-    if pot['name'] == MONZO_POT_2_NAME:
-        pot2 = pot['name'] + ': £' + "{:.2f}".format(pot['balance']/100)
-    if pot['name'] == MONZO_POT_3_NAME:
-        pot3 = pot['name'] + ': £' + "{:.2f}".format(pot['balance']/100)
+pots = monzo.pots()
+for pot in pots:
+    if pot.name == MONZO_POT_1_NAME:
+        pot1 = str(pot.name) + ': £' + "{:.2f}".format(float(pot.balance)/100)
+    if pot.name == MONZO_POT_2_NAME:
+        pot2 = str(pot.name) + ': £' + "{:.2f}".format(float(pot.balance)/100)
+    if pot.name == MONZO_POT_3_NAME:
+        pot3 = str(pot.name) + ': £' + "{:.2f}".format(float(pot.balance)/100)
 
 # Process the SVG
 output = codecs.open(template , 'r', encoding='utf-8').read()
