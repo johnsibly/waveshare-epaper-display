@@ -69,12 +69,9 @@ for x in range(5):
         start = event['start'].get('dateTime', event['start'].get('date'))
         day = ''
         if len(start) == 10:
-            day = time.strftime("%a %b %d",time.strptime(start,"%Y-%m-%d"))
+            day = time.strftime('%a %b %d',time.strptime(start,'%Y-%m-%d'))
         else:
-            if len(start) > 19:
-                # Stripout timezone offset, e.g. make 2020-03-30T18:45:00+01:00 => 2020-03-30T18:45:00
-                start = start[0:19]
-            day = time.strftime("%a %b %d %X",time.strptime(start,"%Y-%m-%dT%H:%M:%S%fZ"))
+            day = time.strftime('%a %b %d %X',time.strptime(start,'%Y-%m-%dT%H:%M:%S%f%z'))
         desc = event['summary']
         print(day, desc)
     else:
