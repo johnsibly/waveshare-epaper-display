@@ -214,9 +214,9 @@
      y="370"
      font-size="29px"
      style="font-size:29px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">
-     <tspan x="330" dy="25" style="font-size:23px;">Putney to Hammersmith:</tspan>
-     <tspan style="font-weight:bold;" x="330" dy="25">OPTION_TUBE</tspan>
-     <tspan style="font-weight:bold;" x="330" dy="25">OPTION_BUS</tspan>
+     <tspan x="330" dy="25" style="font-size:23px;">Internet connection speed:</tspan>
+     <tspan style="font-weight:bold;" x="330" dy="25">OPTION_UPLOAD</tspan>
+     <tspan style="font-weight:bold;" x="330" dy="25">OPTION_DOWNLOAD</tspan>
    </text>
   
    <svg id="monzo" x="260" y="380"> 

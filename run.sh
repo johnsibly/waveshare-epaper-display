@@ -6,8 +6,11 @@ sudo -E python3 screen-weather-get.py
 figlet Calendar info
 sudo -E python3 screen-calendar-get.py
 
-figlet Transport status
-sudo -E python3 screen-transport-status.py
+# figlet Transport status
+# sudo -E python3 screen-transport-status.py
+
+figlet Sky router speeds
+sudo -E python3 screen-internet-speed.py
 
 figlet Monzo balances
 sudo -E python3 screen-monzo.py
