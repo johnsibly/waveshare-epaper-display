@@ -1,7 +1,6 @@
 __pycache__
 *.__pycache__
 *.pyc
-screen-output*
 env.sh
 *.log
 .vscode
@@ -9,3 +8,5 @@ env.sh
 credentials*
 env.sh
 apiresponse.json
+node_modules/*
+screen-output-weather_out.svg
