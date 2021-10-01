@@ -9,6 +9,12 @@ sudo -E python3 screen-calendar-get.py
 # figlet Transport status
 # sudo -E python3 screen-transport-status.py
 
+# Delete the pickle caching the internet speed so we only read it from the router once per day
+current_hour=`date +"%H"`
+if [ $current_hour -eq 7 ] ; then
+   rm internet_speed
+fi
+
 figlet Sky router speeds
 sudo -E python3 screen-internet-speed.py
 
