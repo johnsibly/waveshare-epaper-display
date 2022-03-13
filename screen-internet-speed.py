@@ -8,7 +8,6 @@ import os
 import pickle
 skyrouter_password=os.getenv("SKYROUTER_PASSWORD","")
 
-
 template = 'screen-output-weather.svg'
 
 downloadSpeed = 'Undefined'
@@ -16,13 +15,11 @@ uploadSpeed = 'Undefined'
 
 stale = True
 
-if os.path.isfile(os.getcwd() + "internet_speed.pickle"):
+if os.path.isfile("internet_speed.pickle"):
     print("Found internet_speed")
     file = open('internet_speed.pickle', 'rb')
     data = pickle.load(file)
     stale=time.time() - os.path.getmtime(os.getcwd() + "/internet_speed.pickle") > (24*60*60)
-
-    file.close()
     downloadSpeed = data[1]
     uploadSpeed = data[0]
     print('Showing the pickled data: uploadSpeed = ' + uploadSpeed + ' downloadSpeed = ' + downloadSpeed)
