@@ -6,8 +6,8 @@ sudo -E python3 screen-weather-get.py
 figlet Calendar info
 sudo -E python3 screen-calendar-get.py
 
-# figlet Transport status
-# sudo -E python3 screen-transport-status.py
+figlet Transport status
+sudo -E python3 screen-transport-status.py
 
 # Delete the pickle caching the internet speed so we only read it from the router once per day
 current_hour=`date +"%H"`
