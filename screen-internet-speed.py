@@ -42,7 +42,7 @@ else:
     pickle.dump(data, file)
     file.close()
 
-speed = 'Upload ' + str(round(int(uploadSpeed)/1024, 1)) + ' Mbps' + ' ⚡Download ' + str(round(int(downloadSpeed)/1024, 1)) + ' Mbps'
+speed = 'Up ' + str(round(int(uploadSpeed)/1024, 1)) + ' Mbps' + ' ⚡Down ' + str(round(int(downloadSpeed)/1024, 1)) + ' Mbps'
 print(speed)
 # Process the SVG
 output = codecs.open(template , 'r', encoding='utf-8').read()
