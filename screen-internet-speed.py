@@ -38,11 +38,13 @@ else:
     
     data = [uploadSpeed, downloadSpeed]
     file = open('internet_speed', 'wb')
+    
     pickle.dump(data, file)
     file.close()
 
+speed = 'Upload ' + str(round(int(uploadSpeed)/1024, 1)) + ' Mbps' + ' ⚡Download ' + str(round(int(downloadSpeed)/1024, 1)) + ' Mbps'
+print(speed)
 # Process the SVG
 output = codecs.open(template , 'r', encoding='utf-8').read()
-output = output.replace('OPTION_UPLOAD', 'Upload speed ' + str(round(int(uploadSpeed)/1024, 1)) + ' Mbps')
-output = output.replace('OPTION_DOWNLOAD', 'Download speed ' + str(round(int(downloadSpeed)/1024, 1)) + ' Mbps')
+output = output.replace('CONNECTION_SPEED', speed)
 codecs.open('screen-output-weather.svg', 'w', encoding='utf-8').write(output)
