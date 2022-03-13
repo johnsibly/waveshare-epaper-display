@@ -5,8 +5,8 @@ import codecs
 
 template = 'screen-output-weather.svg'
 
-busUrl = 'https://api.tfl.gov.uk/Journey/JourneyResults/sw152qa/to/W67AP?nationalSearch=false&Mode=bus&timeIs=Departing&journeyPreference=LeastTime'
-tubeUrl = 'https://api.tfl.gov.uk/Journey/JourneyResults/sw152qa/to/W67AP?nationalSearch=false&Mode=tube&timeIs=Departing&journeyPreference=LeastTime'
+# busUrl = 'https://api.tfl.gov.uk/Journey/JourneyResults/sw152qa/to/W67AP?nationalSearch=false&Mode=bus&timeIs=Departing&journeyPreference=LeastTime'
+tubeUrl = 'https://api.tfl.gov.uk/Journey/JourneyResults/sw152qa/to/NW15DH?nationalSearch=false&Mode=tube&timeIs=Departing&journeyPreference=LeastTime'
 tubeStatusUrl = 'https://api.tfl.gov.uk/line/mode/tube/status'
 
 tubeTime = 'Undefined'
@@ -33,7 +33,7 @@ def howIsDistrict():
             break
     print('District line status = ' + districtLineStatus)
 
-busTime = howIsJourney(busUrl, 'bus')
+# busTime = howIsJourney(busUrl, 'bus')
 tubeTime = howIsJourney(tubeUrl, 'tube')
 
 # Process the SVG
