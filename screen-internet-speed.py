@@ -1,5 +1,6 @@
 import json
 import requests
+import time
 from operator import attrgetter
 import codecs
 from requests.auth import HTTPBasicAuth
@@ -13,14 +14,21 @@ template = 'screen-output-weather.svg'
 downloadSpeed = 'Undefined'
 uploadSpeed = 'Undefined'
 
-if os.path.isfile('internet_speed'):
-    file = open('internet_speed', 'rb')
+stale = True
+
+if os.path.isfile(os.getcwd() + "internet_speed.pickle"):
+    print("Found internet_speed")
+    file = open('internet_speed.pickle', 'rb')
     data = pickle.load(file)
+    stale=time.time() - os.path.getmtime(os.getcwd() + "/internet_speed.pickle") > (24*60*60)
+
     file.close()
     downloadSpeed = data[1]
     uploadSpeed = data[0]
     print('Showing the pickled data: uploadSpeed = ' + uploadSpeed + ' downloadSpeed = ' + downloadSpeed)
-else:
+
+if stale:
+    print("Pickle is stale, working out connection speed from router")
     routerStatusUrl = 'http://192.168.10.1/sky_router_status.html'
     routerStatsUrl = 'http://192.168.10.1/sky_system.html'
     html = requests.get(routerStatusUrl, auth=HTTPBasicAuth('admin', skyrouter_password)).text
@@ -37,7 +45,7 @@ else:
     print('uploadSpeed = ' + uploadSpeed + ' downloadSpeed = ' + downloadSpeed)
     
     data = [uploadSpeed, downloadSpeed]
-    file = open('internet_speed', 'wb')
+    file = open('internet_speed.pickle', 'wb')
     
     pickle.dump(data, file)
     file.close()
