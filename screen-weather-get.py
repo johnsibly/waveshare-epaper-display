@@ -1,15 +1,8 @@
 #!/usr/bin/python
 
-import json
-import requests
-from xml.dom import minidom
 import datetime
 import codecs
-import os.path
-import time
-import sys
-import os
-import html
+
 from metofficedatahub import get_weather 
 
 weatherData = get_weather()
