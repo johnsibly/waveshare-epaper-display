@@ -6,3 +6,5 @@ export MONZO_ACCOUNT_NAME=Primary Account
 export MONZO_POT_1_NAME=Holiday
 export MONZO_POT_2_NAME=Savings
 export MONZO_POT_3_NAME=Rainy Day
+export METOFFICEDATAHUB_CLIENT_ID=xxxxxx
+export METOFFICEDATAHUB_CLIENT_SECRET=xxxxxx
