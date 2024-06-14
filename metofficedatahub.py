@@ -11,10 +11,9 @@ import sys
 location_lat = 51.4616
 location_long = -0.2090
 
-client_id=os.getenv("METOFFICEDATAHUB_CLIENT_ID","")
 client_secret=os.getenv("METOFFICEDATAHUB_CLIENT_SECRET","")
 
-if client_id=="" or client_secret=="" or client_id=="xxxxxx" or client_secret=="xxxxxx":
+if client_secret=="" or client_secret=="xxxxxx":
     print("MetOffice API credentials are missing")
     sys.exit(1)
 
@@ -124,15 +123,13 @@ def get_description_from_metoffice_weathercode(weathercode):
     return description.title()
 
 # Get weather from MetOffice Weather DataHub
-# https://metoffice.apiconnect.ibmcloud.com/metoffice/production/node/173
 def get_weather():
 
-    url = ("https://api-metoffice.apiconnect.ibmcloud.com/metoffice/production/v0/forecasts/point/daily?excludeParameterMetadata=false&includeLocationName=false&latitude={}&longitude={}"
+    url = ("https://data.hub.api.metoffice.gov.uk/sitespecific/v0/point/daily?excludeParameterMetadata=false&includeLocationName=false&latitude={}&longitude={}"
             .format(location_lat, location_long))
 
     headers = {
-        "X-IBM-Client-Id": client_id,
-        "X-IBM-Client-Secret": client_secret,
+        "apikey": client_secret,
         "accept": "application/json"
     }
 
