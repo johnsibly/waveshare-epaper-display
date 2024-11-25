@@ -209,14 +209,14 @@
      <tspan style="font-weight:bold;" x="30" dy="25">MONZO_POT_3</tspan>
    </text> -->
 
-     <text font-size="29px" x="30" y="385" font-weight="bold" class="column-title" width="117">todayDate</text>
-      <text font-size="29px" x="330" y="385" font-weight="bold" class="column-title" width="128">tomorrowDate</text>
-      <text font-size="29px" width="117" x="30" height="25.3671875" y="430">todayHighTime1</text>
-      <text font-size="29px" width="128" x="180" height="25.3671875" y="430">todayHighHeight1</text>
+     <text font-size="29px" x="30" y="405" font-weight="bold" class="column-title" width="117">todayDate</text>
+      <text font-size="29px" x="330" y="405" font-weight="bold" class="column-title" width="128">tomorrowDate</text>
+      <text font-size="29px" width="117" x="30" height="25.3671875" y="440">todayHighTime1</text>
+      <text font-size="29px" width="128" x="180" height="25.3671875" y="440">todayHighHeight1</text>
       <text font-size="29px" width="117" x="30" height="25.3671875" y="475">todayHighTime2</text>
       <text font-size="29px" width="128" x="180" height="25.3671875" y="475">todayHighHeight2</text>
-      <text font-size="29px" width="117" x="330" height="25.3671875" y="430">tomorrowHighTime1</text>
-      <text font-size="29px" width="128" x="480" height="25.3671875" y="430">tomorrowHighHeight1</text>
+      <text font-size="29px" width="117" x="330" height="25.3671875" y="440">tomorrowHighTime1</text>
+      <text font-size="29px" width="128" x="480" height="25.3671875" y="440">tomorrowHighHeight1</text>
       <text font-size="29px" width="117" x="330" height="25.3671875" y="475">tomorrowHighTime2</text>
       <text font-size="29px" width="128" x="480" height="25.3671875" y="475">tomorrowHighHeight2</text>
    <!-- <text

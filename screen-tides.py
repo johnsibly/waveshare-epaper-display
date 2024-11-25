@@ -32,8 +32,8 @@ print('tomorrowHighHeight2', tomorrowHighHeight2)
 
 # Process the SVG
 output = codecs.open(template , 'r', encoding='utf-8').read()
-output = output.replace('todayDate', today)
-output = output.replace('tomorrowDate', tomorrow)
+output = output.replace('todayDate', today[:-5])
+output = output.replace('tomorrowDate', tomorrow[:-5])
 output = output.replace('todayHighTime1', todayHighTime1)
 output = output.replace('todayHighTime2', todayHighTime2)
 output = output.replace('todayHighHeight1', todayHighHeight1)
