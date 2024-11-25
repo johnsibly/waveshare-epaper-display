@@ -2,24 +2,34 @@
 . env.sh
 figlet Weather info
 sudo -E python3 screen-weather-get.py
+echo Weather processed
 
 figlet Calendar info
 sudo -E python3 screen-calendar-get.py
+echo Calendar processed
 
-figlet Transport status
-sudo -E python3 screen-transport-status.py
+# figlet Transport status
+# sudo -E python3 screen-transport-status.py
+# echo Transport processed
 
 # Delete the pickle caching the internet speed so we only read it from the router once per day
-current_hour=`date +"%H"`
-if [ $current_hour -eq 7 ] ; then
-   rm internet_speed
-fi
+# current_hour=`date +"%H"`
+# if [ $current_hour -eq 7 ] ; then
+#    rm internet_speed
+#    echo internet_speed removed
+# fi
 
-figlet Sky router speeds
-sudo -E python3 screen-internet-speed.py
+figlet Putney Tide Times
+sudo -E python3 screen-tides.py
+echo Putney Tide Times obtained
 
-figlet Monzo balances
-sudo -E python3 screen-monzo.py
+# figlet Sky router speeds
+# sudo -E python3 screen-internet-speed.py
+# echo Sky router speeds obtained
+
+# figlet Monzo balances
+# sudo -E python3 screen-monzo.py
+# echo Monxy balances processed
 
 figlet Export
 # Inkscape can't export to BMP, so let's export to PNG first. 
