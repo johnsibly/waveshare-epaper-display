@@ -11,13 +11,20 @@ tomorrow = tide_table.iloc[1][4]
 
 todayHighTime1 = tide_table.iloc[4][1]
 todayHighTime2 = tide_table.iloc[6][1]
+if pd.isna(todayHighTime2):
+    todayHighTime2 = ""
 todayHighHeight1 = tide_table.iloc[4][3]
 todayHighHeight2 = tide_table.iloc[6][3]
-
+if pd.isna(todayHighHeight2):
+    todayHighHeight2 = ""
 tomorrowHighTime1 = tide_table.iloc[4][4]
 tomorrowHighTime2 = tide_table.iloc[6][4]
+if pd.isna(tomorrowHighTime2):
+    tomorrowHighTime2 = ""
 tomorrowHighHeight1 = tide_table.iloc[4][6]
 tomorrowHighHeight2 = tide_table.iloc[6][6]
+if pd.isna(tomorrowHighHeight2):
+    tomorrowHighHeight2 = ""
 
 print('today', today)
 print('tomorrow', tomorrow)
