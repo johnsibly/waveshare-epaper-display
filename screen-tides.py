@@ -6,25 +6,38 @@ url = r'https://thamestides.org.uk/todayp'
 tables = pd.read_html(url) # Returns list of all tables on page
 tide_table = tables[0] # Select table of interest
 
+print(tables)
+
 today = tide_table.iloc[1][1]
 tomorrow = tide_table.iloc[1][4]
 
-todayHighTime1 = tide_table.iloc[4][1]
-todayHighTime2 = tide_table.iloc[6][1]
-if pd.isna(todayHighTime2):
-    todayHighTime2 = ""
-todayHighHeight1 = tide_table.iloc[4][3]
-todayHighHeight2 = tide_table.iloc[6][3]
-if pd.isna(todayHighHeight2):
-    todayHighHeight2 = ""
-tomorrowHighTime1 = tide_table.iloc[4][4]
-tomorrowHighTime2 = tide_table.iloc[6][4]
+if tide_table.iloc[3][0] == "High":
+        todayHighTime1 = tide_table.iloc[3][1]
+        todayHighTime2 = tide_table.iloc[5][1]
+        todayHighHeight1 = tide_table.iloc[3][3]
+        todayHighHeight2 = tide_table.iloc[5][3]
+        tomorrowHighTime1 = tide_table.iloc[3][4]
+        tomorrowHighTime2 = tide_table.iloc[5][4]
+        tomorrowHighHeight1 = tide_table.iloc[3][6]
+        tomorrowHighHeight2 = tide_table.iloc[5][6]
+else:
+        todayHighTime1 = tide_table.iloc[4][1]
+        todayHighTime2 = tide_table.iloc[6][1]
+        todayHighHeight1 = tide_table.iloc[4][3]
+        todayHighHeight2 = tide_table.iloc[6][3]
+        tomorrowHighTime1 = tide_table.iloc[4][4]
+        tomorrowHighTime2 = tide_table.iloc[6][4]
+        tomorrowHighHeight1 = tide_table.iloc[4][6]
+        tomorrowHighHeight2 = tide_table.iloc[6][6]
+
 if pd.isna(tomorrowHighTime2):
-    tomorrowHighTime2 = ""
-tomorrowHighHeight1 = tide_table.iloc[4][6]
-tomorrowHighHeight2 = tide_table.iloc[6][6]
+        tomorrowHighTime2 = ""
+if pd.isna(todayHighHeight2):
+        todayHighHeight2 = ""
+if pd.isna(todayHighTime2):
+        todayHighTime2 = ""
 if pd.isna(tomorrowHighHeight2):
-    tomorrowHighHeight2 = ""
+        tomorrowHighHeight2 = ""
 
 print('today', today)
 print('tomorrow', tomorrow)
