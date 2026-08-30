@@ -1,33 +1,37 @@
 #!/usr/bin/python
 
 import datetime
+import html
 import codecs
 
-from metofficedatahub import get_weather 
+from metofficedatahub import get_forecast
 
-weatherData = get_weather()
-    # { "temperatureMin": "2.0", "temperatureMax": "15.1", "icon": "mostly_cloudy", "description": "Cloudy with light breezes" }
 template = 'screen-template.svg'
 
-weatherData = get_weather()
+# Today gets the full hero treatment; the next two days are shown as a mini strip.
+forecast = get_forecast(days=3)
 
-icon_one = weatherData['icon']
-high_one = round(weatherData['temperatureMax'])
-low_one = round(weatherData['temperatureMin'])
-day_one = datetime.datetime.now().strftime('%a %b %d')
-latest_alert=""
-
-if 'alerts' in weatherData:
-    latest_alert = html.escape(weatherData['alerts'][0]['title'])
-
-print(icon_one , high_one, low_one, day_one)
-
-# Process the SVG
 output = codecs.open(template , 'r', encoding='utf-8').read()
-output = output.replace('ICON_ONE',icon_one)
-output = output.replace('HIGH_ONE',str(high_one))
-output = output.replace('LOW_ONE',str(low_one)+"°C")
-output = output.replace('DAY_ONE',day_one)
+
+for index, label in enumerate(['ONE', 'TWO', 'THREE']):
+    if index >= len(forecast):
+        break
+    day = forecast[index]
+    icon = day['icon']
+    high = round(day['temperatureMax'])
+    low = round(day['temperatureMin'])
+    day_name = day['date'].strftime('%a %b %d') if label == 'ONE' else day['date'].strftime('%a')
+
+    print(label, icon, high, low, day_name)
+
+    output = output.replace('ICON_' + label, icon)
+    output = output.replace('HIGH_' + label, str(high))
+    output = output.replace('LOW_' + label, str(low) + "°C")
+    output = output.replace('DAY_' + label, day_name)
+
+latest_alert = ""
+if 'alerts' in forecast[0]:
+    latest_alert = html.escape(forecast[0]['alerts'][0]['title'])
 
 output = output.replace('TIME_NOW',datetime.datetime.now().strftime("%H:%M"))
 

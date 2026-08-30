@@ -122,8 +122,19 @@ def get_description_from_metoffice_weathercode(weathercode):
 
     return description.title()
 
-# Get weather from MetOffice Weather DataHub
-def get_weather():
+def _build_day_weather(day_forecast, daytime):
+    weather_code = day_forecast["daySignificantWeatherCode"] if daytime else day_forecast["nightSignificantWeatherCode"]
+    # { "temperatureMin": "2.0", "temperatureMax": "15.1", "icon": "mostly_cloudy", "description": "Cloudy with light breezes" }
+    weather = {}
+    weather["date"] = datetime.strptime(day_forecast["time"], "%Y-%m-%dT%H:%MZ")
+    weather["temperatureMin"] = day_forecast["nightMinScreenTemperature"] #if self.units == "metric" else self.c_to_f(day_forecast["nightMinScreenTemperature"])
+    weather["temperatureMax"] = day_forecast["dayMaxScreenTemperature"] #if self.units == "metric" else self.c_to_f(day_forecast["dayMaxScreenTemperature"])
+    weather["icon"] = get_icon_from_metoffice_weathercode(weather_code, daytime)
+    weather["description"] = get_description_from_metoffice_weathercode(weather_code)
+    return weather
+
+# Get an N-day forecast from MetOffice Weather DataHub, starting today.
+def get_forecast(days=3):
 
     url = ("https://data.hub.api.metoffice.gov.uk/sitespecific/v0/point/daily?excludeParameterMetadata=false&includeLocationName=false&latitude={}&longitude={}"
             .format(location_lat, location_long))
@@ -137,21 +148,22 @@ def get_weather():
 
     logging.debug(response_data)
 
-    datahub_time = datetime.now().strftime("%Y-%m-%dT00:00Z")  # midnight of the current day
+    today_date = datetime.now().strftime("%Y-%m-%d")
+    todays_daytime = is_daytime(location_lat, location_long)
 
+    forecast = []
     for day_forecast in response_data["features"][0]["properties"]["timeSeries"]:
-        if day_forecast["time"] == datahub_time:
-            weather_data = day_forecast
+        if day_forecast["time"][:10] < today_date:
+            continue
+        # Only "today" can be shown at night; future days always show the daytime icon/description.
+        daytime = todays_daytime if day_forecast["time"][:10] == today_date else True
+        forecast.append(_build_day_weather(day_forecast, daytime))
+        if len(forecast) >= days:
+            break
 
-    logging.debug("get_weather() - {}".format(weather_data))
+    logging.debug("get_forecast() - {}".format(forecast))
+    return forecast
 
-    daytime = is_daytime(location_lat, location_long)
-    weather_code = weather_data["daySignificantWeatherCode"] if daytime else weather_data["nightSignificantWeatherCode"]
-    # { "temperatureMin": "2.0", "temperatureMax": "15.1", "icon": "mostly_cloudy", "description": "Cloudy with light breezes" }
-    weather = {}
-    weather["temperatureMin"] = weather_data["nightMinScreenTemperature"] #if self.units == "metric" else self.c_to_f(weather_data["nightMinScreenTemperature"])
-    weather["temperatureMax"] = weather_data["dayMaxScreenTemperature"] #if self.units == "metric" else self.c_to_f(weather_data["dayMaxScreenTemperature"])
-    weather["icon"] = get_icon_from_metoffice_weathercode(weather_code, daytime)
-    weather["description"] = get_description_from_metoffice_weathercode(weather_code)
-    logging.debug(weather)
-    return weather
+# Get today's weather from MetOffice Weather DataHub.
+def get_weather():
+    return get_forecast(days=1)[0]

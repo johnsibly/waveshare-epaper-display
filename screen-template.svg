@@ -180,10 +180,10 @@
   
   <text
      id="text3141"
-     x="0"
-     y="25"
-     font-size="20px"
-     style="font-weight:bolder;font-size:30px;line-height:0%;font-family:'Nimbus Mono L';text-anchor:beginning">ALERT_MESSAGE</text>
+     x="30"
+     y="22"
+     font-size="22px"
+     style="font-weight:bolder;font-size:22px;line-height:0%;font-family:'Nimbus Mono L';text-anchor:beginning">ALERT_MESSAGE</text>
   <text
      id="text3155"
      x="165"
@@ -196,6 +196,20 @@
      y="220"
      font-size="38px"
      style="font-size:38px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:middle">HIGH_ONE/LOW_ONE</text>
+
+  <!-- Mini 2-day forecast strip, below the hero weather block -->
+  <g transform="translate(30 345) scale(0.35)" id="g_forecast_icon_two">
+    <use xlink:href="#ICON_TWO" />
+  </g>
+  <text x="70" y="358" font-size="15px" style="font-weight:bold;font-size:15px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">DAY_TWO</text>
+  <text x="70" y="376" font-size="15px" style="font-size:15px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">HIGH_TWO/LOW_TWO</text>
+
+  <g transform="translate(170 345) scale(0.35)" id="g_forecast_icon_three">
+    <use xlink:href="#ICON_THREE" />
+  </g>
+  <text x="210" y="358" font-size="15px" style="font-weight:bold;font-size:15px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">DAY_THREE</text>
+  <text x="210" y="376" font-size="15px" style="font-size:15px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">HIGH_THREE/LOW_THREE</text>
+
    <!-- <text
      id="textprcblockbusarrivals"
      x="30"
