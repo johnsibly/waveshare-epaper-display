@@ -156,6 +156,11 @@
 	</g>
    
   </defs>
+
+  <style>
+    text { font-family: 'Lexend', 'DejaVu Sans', sans-serif; }
+  </style>
+
   <!-- <g
      transform="matrix(1.7166581,0,0,1.4427701,62.786598,36.074275)"
      id="g3123"> -->
@@ -167,7 +172,7 @@
        x="30"
        y="125"
        font-size="100px"
-       style="font-weight:bold;font-size:100px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">TIME_NOW</text>
+       style="font-weight:bold;font-size:80px;line-height:0%;text-anchor:beginning">TIME_NOW</text>
   <!-- </g> -->
   <g
      transform="scale(1.1) translate(65 210)"
@@ -176,39 +181,39 @@
        xlink:href="#ICON_ONE"
        id="use3129" />
   </g>
-  
-  
+
+
   <text
      id="text3141"
      x="30"
      y="22"
      font-size="22px"
-     style="font-weight:bolder;font-size:22px;line-height:0%;font-family:'Nimbus Mono L';text-anchor:beginning">ALERT_MESSAGE</text>
+     style="font-weight:bolder;font-size:22px;line-height:0%;text-anchor:beginning">ALERT_MESSAGE</text>
   <text
      id="text3155"
      x="165"
      y="175"
      font-size="37px"
-     style="font-size:37px;font-weight:bold;line-height:0%;font-family:'Nimbus Sans L';text-anchor:middle">DAY_ONE</text>
+     style="font-size:37px;font-weight:bold;line-height:0%;text-anchor:middle">DAY_ONE</text>
   <text
      id="text3159"
      x="155"
      y="220"
      font-size="38px"
-     style="font-size:38px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:middle">HIGH_ONE/LOW_ONE</text>
+     style="font-size:38px;line-height:0%;text-anchor:middle">HIGH_ONE/LOW_ONE</text>
 
   <!-- Mini 2-day forecast strip, below the hero weather block -->
   <g transform="translate(30 345) scale(0.35)" id="g_forecast_icon_two">
     <use xlink:href="#ICON_TWO" />
   </g>
-  <text x="70" y="358" font-size="15px" style="font-weight:bold;font-size:15px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">DAY_TWO</text>
-  <text x="70" y="376" font-size="15px" style="font-size:15px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">HIGH_TWO/LOW_TWO</text>
+  <text x="70" y="358" font-size="15px" style="font-weight:bold;font-size:15px;line-height:0%;text-anchor:beginning">DAY_TWO</text>
+  <text x="70" y="376" font-size="15px" style="font-size:15px;line-height:0%;text-anchor:beginning">HIGH_TWO/LOW_TWO</text>
 
   <g transform="translate(170 345) scale(0.35)" id="g_forecast_icon_three">
     <use xlink:href="#ICON_THREE" />
   </g>
-  <text x="210" y="358" font-size="15px" style="font-weight:bold;font-size:15px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">DAY_THREE</text>
-  <text x="210" y="376" font-size="15px" style="font-size:15px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">HIGH_THREE/LOW_THREE</text>
+  <text x="210" y="358" font-size="15px" style="font-weight:bold;font-size:15px;line-height:0%;text-anchor:beginning">DAY_THREE</text>
+  <text x="210" y="376" font-size="15px" style="font-size:15px;line-height:0%;text-anchor:beginning">HIGH_THREE/LOW_THREE</text>
 
    <!-- <text
      id="textprcblockbusarrivals"
@@ -223,16 +228,16 @@
      <tspan style="font-weight:bold;" x="30" dy="25">MONZO_POT_3</tspan>
    </text> -->
 
-     <text font-size="29px" x="30" y="405" font-weight="bold" class="column-title" width="117">todayDate</text>
-      <text font-size="29px" x="330" y="405" font-weight="bold" class="column-title" width="128">tomorrowDate</text>
-      <text font-size="29px" width="117" x="30" height="25.3671875" y="440">todayHighTime1</text>
-      <text font-size="29px" width="128" x="180" height="25.3671875" y="440">todayHighHeight1</text>
-      <text font-size="29px" width="117" x="30" height="25.3671875" y="475">todayHighTime2</text>
-      <text font-size="29px" width="128" x="180" height="25.3671875" y="475">todayHighHeight2</text>
-      <text font-size="29px" width="117" x="330" height="25.3671875" y="440">tomorrowHighTime1</text>
-      <text font-size="29px" width="128" x="480" height="25.3671875" y="440">tomorrowHighHeight1</text>
-      <text font-size="29px" width="117" x="330" height="25.3671875" y="475">tomorrowHighTime2</text>
-      <text font-size="29px" width="128" x="480" height="25.3671875" y="475">tomorrowHighHeight2</text>
+     <text font-size="29px" x="30" y="405" font-weight="bold">todayDate</text>
+      <text font-size="29px" x="330" y="405" font-weight="bold">tomorrowDate</text>
+      <text font-size="29px" x="30" y="437">todayHighTime1</text>
+      <text font-size="29px" x="180" y="437">todayHighHeight1</text>
+      <text font-size="29px" x="30" y="469">todayHighTime2</text>
+      <text font-size="29px" x="180" y="469">todayHighHeight2</text>
+      <text font-size="29px" x="330" y="437">tomorrowHighTime1</text>
+      <text font-size="29px" x="480" y="437">tomorrowHighHeight1</text>
+      <text font-size="29px" x="330" y="469">tomorrowHighTime2</text>
+      <text font-size="29px" x="480" y="469">tomorrowHighHeight2</text>
    <!-- <text
      id="textprcblocktransportoptions"
      x="330"
@@ -244,70 +249,50 @@
      <tspan x="330" dy="25" style="font-size:23px;">Internet connection speed:</tspan>
      <tspan style="font-weight:bold;" x="330" dy="25">CONNECTION_SPEED</tspan>
    </text> -->
-  <path
-     d="m 301.08466,394.8254 v -40 h 3 v -240 h -3 z"
-     id="path3197"
-     inkscape:connector-curvature="0" />
-   <g 
-   id="calendar" transform="scale(0.1) translate(3300,450)">
-				<path
-            style="fill:#090509"
-            d="M 506.645,89.372 C 502.609,76.437 491.008,66.87 476.738,66.87 h -31.782 v 49.326 c 0,26.284 -21.39,47.674 -47.674,47.674 -26.284,0 -47.674,-21.39 -47.674,-47.674 V 66.87 H 158.753 v 49.326 c 0,26.284 -21.39,47.674 -47.674,47.674 -26.284,0 -47.674,-21.39 -47.674,-47.674 V 66.87 H 31.782 c -14.27,0 -25.903,9.567 -29.907,22.502 H 0 v 387.365 c 0,17.544 14.239,31.782 31.782,31.782 h 444.955 c 17.544,0 31.782,-14.239 31.782,-31.782 V 89.372 Z M 476.737,476.737 H 31.782 v -254.26 h 444.955 z"
-            id="path132"
-            inkscape:connector-curvature="0" />
-                     <path
-            style="fill:#090509"
-            d="m 111.08,132.088 c 8.772,0 15.891,-7.119 15.891,-15.891 V 15.891 C 126.971,7.119 119.852,0 111.08,0 102.308,0 95.189,7.119 95.189,15.891 v 100.306 c 0,8.772 7.119,15.891 15.891,15.891 z"
-            id="path134"
-            inkscape:connector-curvature="0" />
-                     <path
-            style="fill:#090509"
-            d="m 397.281,132.088 c 8.74,0 15.891,-7.119 15.891,-15.891 V 15.891 C 413.172,7.119 406.021,0 397.281,0 388.541,0 381.39,7.119 381.39,15.891 v 100.306 c 0,8.772 7.151,15.891 15.891,15.891 z"
-            id="path136"
-            inkscape:connector-curvature="0" />
-			</g>
+  <rect x="301" y="55" width="3" height="414" id="path3197" />
+
    <text
      id="textprcblock1"
      x="330"
-     y="100"
+     y="45"
      font-size="29px"
-     style="font-size:29px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">
+     style="font-size:29px;line-height:0%;text-anchor:beginning">
      <tspan x="330" dy="25" style="font-size:23px;">CAL_1</tspan>
      <tspan style="font-weight:bold;" x="330" dy="25">CAL_DESC_1</tspan>
    </text>
    <text
      id="textprcblock2"
      x="330"
-     y="150"
+     y="110"
      font-size="29px"
-     style="font-size:29px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">
+     style="font-size:29px;line-height:0%;text-anchor:beginning">
      <tspan x="330" dy="25" style="font-size:23px;">CAL_2</tspan>
      <tspan style="font-weight:bold;" x="330" dy="25">CAL_DESC_2</tspan>
    </text>
    <text
      id="textprcblock3"
      x="330"
-     y="200"
+     y="175"
      font-size="29px"
-     style="font-size:29px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">
+     style="font-size:29px;line-height:0%;text-anchor:beginning">
      <tspan x="330" dy="25" style="font-size:23px;">CAL_3</tspan>
      <tspan style="font-weight:bold;" x="330" dy="25">CAL_DESC_3</tspan>
    </text>
    <text
      id="textprcblock4"
      x="330"
-     y="250"
+     y="240"
      font-size="29px"
-     style="font-size:29px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">
+     style="font-size:29px;line-height:0%;text-anchor:beginning">
      <tspan x="330" dy="25" style="font-size:23px;">CAL_4</tspan>
      <tspan style="font-weight:bold;" x="330" dy="25">CAL_DESC_4</tspan>
    </text>
    <text
      id="textprcblock5"
      x="330"
-     y="300"
+     y="305"
      font-size="29px"
-     style="font-size:29px;line-height:0%;font-family:'Nimbus Sans L';text-anchor:beginning">
+     style="font-size:29px;line-height:0%;text-anchor:beginning">
      <tspan x="330" dy="25" style="font-size:23px;">CAL_5</tspan>
      <tspan style="font-weight:bold;" x="330" dy="25">CAL_DESC_5</tspan>
    </text>
