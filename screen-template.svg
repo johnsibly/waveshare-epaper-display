@@ -257,8 +257,8 @@
      y="45"
      font-size="29px"
      style="font-size:29px;line-height:0%;text-anchor:beginning">
-     <tspan x="330" dy="25" style="font-size:23px;">CAL_1</tspan>
-     <tspan style="font-weight:bold;" x="330" dy="25">CAL_DESC_1</tspan>
+     <tspan x="330" dy="20" style="font-size:23px;">CAL_1</tspan>
+     <tspan style="font-weight:bold;" x="330" dy="34">CAL_DESC_1</tspan>
    </text>
    <text
      id="textprcblock2"
@@ -266,8 +266,8 @@
      y="110"
      font-size="29px"
      style="font-size:29px;line-height:0%;text-anchor:beginning">
-     <tspan x="330" dy="25" style="font-size:23px;">CAL_2</tspan>
-     <tspan style="font-weight:bold;" x="330" dy="25">CAL_DESC_2</tspan>
+     <tspan x="330" dy="20" style="font-size:23px;">CAL_2</tspan>
+     <tspan style="font-weight:bold;" x="330" dy="34">CAL_DESC_2</tspan>
    </text>
    <text
      id="textprcblock3"
@@ -275,8 +275,8 @@
      y="175"
      font-size="29px"
      style="font-size:29px;line-height:0%;text-anchor:beginning">
-     <tspan x="330" dy="25" style="font-size:23px;">CAL_3</tspan>
-     <tspan style="font-weight:bold;" x="330" dy="25">CAL_DESC_3</tspan>
+     <tspan x="330" dy="20" style="font-size:23px;">CAL_3</tspan>
+     <tspan style="font-weight:bold;" x="330" dy="34">CAL_DESC_3</tspan>
    </text>
    <text
      id="textprcblock4"
@@ -284,8 +284,8 @@
      y="240"
      font-size="29px"
      style="font-size:29px;line-height:0%;text-anchor:beginning">
-     <tspan x="330" dy="25" style="font-size:23px;">CAL_4</tspan>
-     <tspan style="font-weight:bold;" x="330" dy="25">CAL_DESC_4</tspan>
+     <tspan x="330" dy="20" style="font-size:23px;">CAL_4</tspan>
+     <tspan style="font-weight:bold;" x="330" dy="34">CAL_DESC_4</tspan>
    </text>
    <text
      id="textprcblock5"
@@ -293,8 +293,8 @@
      y="305"
      font-size="29px"
      style="font-size:29px;line-height:0%;text-anchor:beginning">
-     <tspan x="330" dy="25" style="font-size:23px;">CAL_5</tspan>
-     <tspan style="font-weight:bold;" x="330" dy="25">CAL_DESC_5</tspan>
+     <tspan x="330" dy="20" style="font-size:23px;">CAL_5</tspan>
+     <tspan style="font-weight:bold;" x="330" dy="34">CAL_DESC_5</tspan>
    </text>
 
 </svg>
